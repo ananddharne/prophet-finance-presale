@@ -5,6 +5,7 @@ import Helloabi from "./contracts/Hello.json";
 import Web3 from "web3";
 import Navbar from "./Navbar";
 import swal from "sweetalert";
+import "./App.css"
 
 const App = () => {
   const [refresh, setrefresh] = useState(0);
@@ -19,9 +20,13 @@ const App = () => {
   const [SIGNER, SETSIGNER] = useState({});
   const [flag, setflag] = useState(0);
   // const provider = await detectEthereumProvider();
+  
   const loadWeb3 = async () => {
     if (window.ethereum) {
       await window.ethereum.enable();
+      window.onfocus = () => {
+        window.location.reload();
+      }
     } else {
       window.alert(
         "Non-Ethereum browser detected. You should consider trying MetaMask!"
@@ -105,17 +110,24 @@ const App = () => {
         },
       ],
     });
-    window.location.reload();
+    // window.location.reload();
   };
 
   useEffect(() => {
     loadWeb3();
     loadBlockchainData();
-
-    if (refresh == 1) {
-      setrefresh(0);
-      loadBlockchainData();
-    }
+    // console.log(refresh)
+    // setrefresh(1)
+    // if (refresh == 1) {
+    //   setrefresh(1);
+    //   loadBlockchainData();
+    // } else {
+    //     window.onfocus = () => {
+    //       window.location.reload();
+    //   }
+    // }
+   
+     
     //esl
   }, [refresh]);
 
@@ -127,7 +139,7 @@ const App = () => {
     );
   } else {
     content = (
-      <div class="container">
+      <div className="container">
         <main role="main" class="container">
           <div class="jumbotron">
             <h1>Project</h1>
@@ -143,7 +155,7 @@ const App = () => {
                 <h3>text 3</h3>
               </div>
               <div className="row" style={{ paddingLeft: "40px" }}>
-                <button className="btn btn-primary">Click on it</button>
+                <button id="btn" className="btn btn-primary">Click on it</button>
               </div>
             </div>
           </div>
