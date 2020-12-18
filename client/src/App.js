@@ -249,7 +249,7 @@ const App = () => {
             </div>
             <NumericInput
               onChange={onChange}
-              value={1}
+              value={inputVal}
               precision={2}
               size={6}
               step={0.1}
