@@ -1,3 +1,402 @@
-#btn {
-    background-color: orange;
+
+
+@media only screen and (min-width: 370px) {
+  
+html, body, .grid-container { 
+    
+    margin: 0; 
+    font-size: 60% ;
+    /* height: 100%; */
+    width: 100%;
+    height: auto;
+    background-color: #162035;
 }
+
+.grid-container {
+  display: grid;
+  padding: 0em 5em 1em 5em;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(40px, 1fr));
+  /* grid-template-rows: 1fr 0.5fr 1.1fr 0.9fr 1.1fr 1.4fr 1.1fr 1fr 0.9fr; */
+  gap: 1em;
+  grid-template-areas:
+    /* "Navbar Navbar" */
+    "Heading Heading"
+    "Token-Info-section Exchange-rate-section"
+    "Eth-address-section Eth-address-section"
+    "Initial-supply-section Private-supply-section"
+    "Private-sale-progress-section Private-sale-progress-section"
+    "connect-wallet-section connect-wallet-section"
+    "Eth-info-section PRY-recieve-section"
+    "Email-address-section Email-address-section"
+    "Confirmation-section Confirmation-section"
+    "Thanks-section Thanks-section"
+    ;
+    
+    align-content: center;
+}
+
+
+/* .Navbar { 
+    grid-area: Navbar;
+
+} */
+
+.connect-wallet-section {
+    grid-area: connect-wallet-section;
+}
+
+.Thanks-section {
+    grid-area: Thanks-section;
+    height: 150%;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    color: white;
+    margin-left: 5%;
+    width: 85%;
+}
+
+.thanks-text {
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.Thanks-section-none {
+    grid-area: Thanks-section;
+    display: none;
+}
+
+.Heading { 
+    grid-area: Heading; 
+    /* box-shadow: 0 8px 6px -6px black; */
+    background-color: #162035 !important;
+    /* border-radius: 1em; */
+    margin-left: 5%;
+    height: 30%;
+}
+.heading {
+    color: #ff005c;
+    font-size: 175%;
+    margin-top: 2%;
+    margin-left: 0%;
+}
+
+.Token-Info-section { 
+    height: 100%;
+    width: 80%;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    margin-left: 10%;
+    grid-area: Token-Info-section; 
+}
+
+.token-name {
+    color: #ff005c;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    
+}
+
+.token-name-describe {
+    color: white;
+    font-size: 80%;
+
+}
+
+.token-symbol {
+    color: #ff005c;
+    margin-left: 4%;
+    margin-bottom: 2%;
+}
+
+.token-symbol-describe {
+    color: white;
+    font-size: 80%
+}
+
+.Exchange-rate-section { grid-area: Exchange-rate-section; 
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    width: 80%;
+}
+
+.exchange-rate-header {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    color: #ff005c;
+}
+
+.exchange-rate-value {
+    margin-left: 5%;
+    color: white;
+}
+
+.Eth-address-section { 
+    grid-area: Eth-address-section;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    width: 85%;
+    margin-left: 5%;
+}
+
+.eth-address-header {
+    color: white;
+    margin-bottom: 1%;
+    margin-left: 2%;
+    margin-top: 2%
+}
+
+.eth-address-value {
+    margin-left: 2%;
+    color: white;
+    font-size: 80%;
+}
+
+.eth-scan-link {
+    margin-bottom: 1%;
+}
+
+.eth-scan-link a {
+    margin-left: 2%;
+    color: #ff005c;
+}
+
+.eth-scan-link a:hover {
+    color:#162035;
+}
+
+.Initial-supply-section { grid-area: Initial-supply-section;
+color: white;
+box-shadow: 0 8px 6px -6px black;
+background-color: #162b51 !important;
+border-radius: 1em;
+margin-left: 10%;
+width: 80%;
+
+}
+
+.Private-supply-section { 
+color: white;
+    grid-area: Private-supply-section; 
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    width: 80%;
+}
+.Private-sale-progress-section { grid-area: Private-sale-progress-section;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    color: white;
+    width: 85%;
+    margin-left: 5%;
+}
+
+.private-sale-progress-header {
+    color: #ff005c;
+    margin-left: 2%;
+    margin-top: 1%
+}
+
+.private-sale-progress-goal {
+    color: #c9cdd3;
+    margin-left: 2.2%;
+    font-size: 70%;
+    margin-bottom: 1%
+}
+
+.private-sale-progress-note {
+    color: #c9cdd3;
+    margin-left: 2.2%;
+    font-size: 65%;
+    margin-bottom: 1.2%;
+}
+
+.progress-bar {
+    margin-bottom: 2%;
+    width: 80%;
+    margin-left: 2.2%;
+    background-color: #162035 !important;
+    border-radius: 1em;
+    color: white;
+
+
+}
+
+.ant-progress .ant-progress-outer .ant-progress-inner .ant-progress-bg{
+    height: 1.4em !important;
+    background-color: #ff005c;
+   /* background-color: linear-gradient(to right, #ed645c, #d10a47) !important; */
+ }
+
+.Eth-info-section { grid-area: Eth-info-section; 
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.eth-contribute-header {
+    margin-left: 4%;
+    color: white;
+    margin-bottom: 2%;
+    margin-top: 4%;
+}
+
+.react-numeric-input {
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-bottom: 7%;
+}
+
+.react-numeric-input input {
+    border: none !important;
+    border-color: none !important;
+    padding: none !important;
+    background-color: #162035;
+    color: #fff;
+    font-weight: 30;
+    height: 30px !important;
+}
+
+.react-numeric-input input:focus {
+  outline: none;
+}
+
+.react-numeric-input b {
+    box-shadow: none !important;
+    cursor: pointer;
+
+}
+
+
+.PRY-recieve-section { grid-area: PRY-recieve-section;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    color: white;
+    width: 80%;
+}
+
+.pry-recieve-header {
+    margin-left: 4%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.pry-recieve-value {
+    color: #ff005c;
+    font-size: 130%;
+    font-weight: bold;
+}
+
+.prophet-logo {
+    height: 20%;
+    margin-left: 4%;
+    margin-top: -1%;
+}
+
+.Email-address-section { grid-area: Email-address-section;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    color: white;
+    width: 85%;
+    margin-left: 5%;
+}
+
+.required-header {
+    color: #ff005c;
+    margin-top: 1.5%;
+    margin-left: 2%;
+    font-size: 65%;
+    /* margin-bottom: 2%; */
+}
+
+.email-address-header {
+    margin-left: 4%;
+}
+.email-confirmation-text {
+    margin-right: 35% !important;
+}
+.input-email {
+   width: 100%; 
+   background-color: #162035;
+   color: white;
+}
+.input-email:focus {
+    outline: none;
+}
+
+.ant-form-item-explain {
+    color: #ff005c !important;
+    font-style: italic;
+    font-size: 65%;
+    margin-bottom: 1%;
+}
+
+
+
+#register > div:nth-child(2) > div > div > div > label > span:nth-child(2) > span {
+    font-size: 70%;
+}
+
+#register > div:nth-child(3) > div > div > div > button{
+    border-radius: 1em !important;
+    background: linear-gradient(to right, #ff756d, #ff1a60);
+    color: white;
+    width: 8em;
+    outline: none;
+    border: none !important;
+    margin-bottom: 1.6%;
+}
+
+#register > div:nth-child(3) > div > div > div > button:hover {
+    background: linear-gradient(to right, #ed645c, #d10a47);
+ }
+
+
+}
+
+@media (min-width: 768px) {
+    html, body, .grid-container { 
+    
+        font-size: 75% ;
+    }
+} 
+
+@media (min-width: 1000px) {
+    html, body, .grid-container { 
+    
+        font-size: 120% ;
+    }
+} 
+
+@media (min-width: 1300px) {
+    html, body, .grid-container { 
+    
+        font-size: 110% ;
+    }
+}
+
+@media (min-width: 1524px) {
+    html, body, .grid-container { 
+    
+        font-size: 120% ;
+    }
+}
+
+
+ @media (min-width: 1824px) {
+    html, body, .grid-container { 
+    
+        font-size: 130% ;
+    }
+} 

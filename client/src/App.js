@@ -5,7 +5,10 @@ import Helloabi from "./contracts/Hello.json";
 import Web3 from "web3";
 import Navbar from "./Navbar";
 import swal from "sweetalert";
-import "./App.css"
+import "./App.css";
+import { Progress, InputNumber, Form, Input, Checkbox, Button } from "antd";
+import NumericInput from "react-numeric-input";
+import logo from "./logo.svg";
 
 const App = () => {
   const [refresh, setrefresh] = useState(0);
@@ -19,19 +22,44 @@ const App = () => {
   const [Hello, setHello] = useState({});
   const [SIGNER, SETSIGNER] = useState({});
   const [flag, setflag] = useState(0);
+  const [inputVal, setInputVal] =useState(0.1)
   // const provider = await detectEthereumProvider();
-  
+
   const loadWeb3 = async () => {
     if (window.ethereum) {
       await window.ethereum.enable();
-      window.onfocus = () => {
-        window.location.reload();
-      }
     } else {
-      window.alert(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
-      );
+      // window.alert(
+      //   "Non-Ethereum browser detected. You should consider trying MetaMask!"
+      // );
     }
+  };
+
+  const onChange = (value) => {
+    console.log('changed', value);
+    setInputVal(value)
+  }
+  // const validateMessages = {
+  //   types: {
+  //     email: "Not a valid email!"
+  //   }
+  // };
+
+  const [form] = Form.useForm();
+  const onFinish = values => {
+    const sec1 = document.getElementsByClassName("Eth-info-section");
+    sec1[0].style.display = "none";
+
+    const sec2 = document.getElementsByClassName("PRY-recieve-section");
+    sec2[0].style.display = "none";
+
+    const sec3 = document.getElementsByClassName("Email-address-section");
+    sec3[0].style.display = "none";
+
+    const sec4 = document.getElementsByClassName("Thanks-section");
+    sec4[0].classList.remove("Thanks-section-none");
+
+    // sec5[0].classList
   };
 
   const loadBlockchainData = async () => {
@@ -57,7 +85,7 @@ const App = () => {
     setAccount(accounts[0]);
 
     var networkId;
-    await provider.getNetwork().then((result) => {
+    await provider.getNetwork().then(result => {
       networkId = result.chainId;
     });
     if (networkId) {
@@ -88,7 +116,7 @@ const App = () => {
     }
   };
 
-  const onclick = async (a) => {
+  const onclick = async a => {
     // if you want to go from eth to wei
     // use this ethers.utils.parseEther(inputamount.toString())
     // ethers.utils.formatUnits(unLockedTokens, 18))
@@ -106,9 +134,9 @@ const App = () => {
       method: "eth_requestAccounts",
       params: [
         {
-          eth_accounts: {},
-        },
-      ],
+          eth_accounts: {}
+        }
+      ]
     });
     // window.location.reload();
   };
@@ -118,16 +146,16 @@ const App = () => {
     loadBlockchainData();
     // console.log(refresh)
     // setrefresh(1)
-    // if (refresh == 1) {
-    //   setrefresh(1);
-    //   loadBlockchainData();
-    // } else {
+    if (refresh == 1) {
+      setrefresh(1);
+      loadBlockchainData();
+    }
+    // else {
     //     window.onfocus = () => {
     //       window.location.reload();
     //   }
     // }
-   
-     
+
     //esl
   }, [refresh]);
 
@@ -139,27 +167,205 @@ const App = () => {
     );
   } else {
     content = (
-      <div className="container">
-        <main role="main" class="container">
-          <div class="jumbotron">
-            <h1>Project</h1>
-            <div className="row" style={{ paddingTop: "30px" }}>
+      <div>
+        <div class="grid-container">
+          {/* <div class="Navbar"></div> */}
+          <div class="Heading">
+            <div className="heading">Prophecy Private Sale Portal</div>
+          </div>
+          <div className="Token-Info-section">
+            <div className="token-name">
               {" "}
-              <div className="row" style={{ paddingLeft: "40px" }}>
-                <h3>text 1</h3>
-              </div>
-              <div className="row" style={{ paddingLeft: "40px" }}>
-                <h3>text 2</h3>
-              </div>
-              <div className="row" style={{ paddingLeft: "40px" }}>
-                <h3>text 3</h3>
-              </div>
-              <div className="row" style={{ paddingLeft: "40px" }}>
-                <button id="btn" className="btn btn-primary">Click on it</button>
-              </div>
+              Token Name
+              <div className="token-name-describe">Prophecy</div>
+            </div>
+            <div className="token-symbol">
+              {" "}
+              Token Symbol
+              <div className="token-symbol-describe">$PRY</div>
             </div>
           </div>
-        </main>
+          <div className="Exchange-rate-section">
+            <div className="exchange-rate-header">
+              Private Sale Exchange Rate
+            </div>
+            <div className="exchange-rate-value">1 ETH = 78.000 PRY</div>
+          </div>
+          <div className="Eth-address-section">
+            <div className="eth-address-header">
+              {" "}
+              Private Sale ETH Wallet Address{" "}
+            </div>
+            <div className="eth-address-value">
+              {" "}
+              <p> 0x117F7281Db05Ad19e79E497bd7469F793FE36093 </p>{" "}
+            </div>
+            <div className="eth-scan-link">
+              {" "}
+              <a href="/"> Check on Etherscan </a>{" "}
+            </div>
+          </div>
+          <div class="Initial-supply-section">
+            <div className="token-name">
+              {" "}
+              Initial Supply
+              <div className="token-name-describe">1000,000</div>
+            </div>
+            <div className="token-symbol">
+              {" "}
+              Total Supply
+              <div className="token-symbol-describe">200,000,00</div>
+            </div>
+          </div>
+          <div class="Private-supply-section">
+            <div className="exchange-rate-header">Private Sale Supply </div>
+            <div className="exchange-rate-value">50,000,000 PRY</div>
+          </div>
+          <div class="Private-sale-progress-section">
+            <div className="private-sale-progress-header">
+              {" "}
+              Private Sale Progress{" "}
+            </div>
+            <div className="private-sale-progress-goal">Goal: 600 ETH</div>
+            <div className="private-sale-progress-note">
+              Our private sale will end on 18 December 2020, or when our
+              hard-cap goal of 600 ETH is met, whichever comes first
+            </div>
+            <Progress
+              className="progress-bar"
+              status="exception"
+              percent={30}
+              showInfo={false}
+            >
+              <p style={{ position: "absolute", color: "white", flex: 0 }}>
+                testes
+              </p>
+            </Progress>
+          </div>
+          <div class="Eth-info-section">
+            <div className="eth-contribute-header">
+              {" "}
+              ETH you want to contribute{" "}
+            </div>
+            <NumericInput
+              onChange={onChange}
+              value={1}
+              precision={2}
+              size={6}
+              step={0.1}
+              mobile={false}
+              style={{
+                arrowUp: {
+                  borderBottomColor: "#ff005c",
+                  boxShadow: "none"
+                },
+                arrowDown: {
+                  borderTopColor: "#ff005c",
+                  boxShadow: "none"
+                }
+              }}
+            />
+          </div>
+          <div class="PRY-recieve-section">
+            <div className="pry-recieve-header">
+              {" "}
+              PRY you will recieve (1 ETH x 78000):{" "}
+            </div>
+            <img src={logo} className="prophet-logo" />
+            <span className="pry-recieve-value"> {inputVal * 78000}</span>
+          </div>
+          <div class="Email-address-section">
+            <div className="required-header"> Required</div>
+            <Form
+              form={form}
+              name="register"
+              onFinish={onFinish}
+              scrollToFirstError
+              style={{ marginLeft: "2%", marginTop: "2%" }}
+            >
+              <div style={{ display: "flex" }}>
+                <div className="email-confirmation-text">
+                  {" "}
+                  Enter your Email Address for Confirmation{" "}
+                </div>
+                <Form.Item
+                  name="email"
+                  style={{ display: "flex" }}
+                  rules={[
+                    {
+                      type: "email",
+                      message: "The input is not valid E-mail!"
+                    },
+                    {
+                      required: true,
+                      message: "Please input your E-mail!"
+                    }
+                  ]}
+                >
+                  <Input className="input-email" />
+                </Form.Item>
+              </div>
+
+              <Form.Item
+                name="agreement"
+                valuePropName="checked"
+                rules={[
+                  {
+                    validator: (_, value) =>
+                      value
+                        ? Promise.resolve()
+                        : Promise.reject("Should accept agreement")
+                  }
+                ]}
+              >
+                <Checkbox id="checkbox">
+                  <span className="checkbox-text">
+                    {" "}
+                    I want to contribute to the Prophecy private sale and become
+                    an early supporter.{" "}
+                  </span>
+                </Checkbox>
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  size={"large"}
+                  className="confirm-buttom"
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Confirm
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+          <div className="Thanks-section Thanks-section-none">
+            <p className="thanks-text"> Thanks for contributing to our private sale! </p>
+
+            <p>
+              Welcome aboard. When our token launches, you will receive 25% of
+              your private sale tokens each week for a period of four weeks.{" "}
+            </p>
+
+            <p>
+              The tokens will be airdropped to the wallet you used to complete
+              this transaction. We will announce the public token address at the
+              time of launch.
+            </p>
+
+            <p>Please contact us in Telegram for questions. </p>
+            <Button
+                  size={"large"}
+                  className="confirm-buttom"
+                  type="primary"
+                  htmlType="submit"
+                >
+                  Confirm
+                </Button>
+
+                <p>Eth contributed</p>
+                <p> PRY you will recieve (1 ETH x 78000):</p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -169,12 +375,16 @@ const App = () => {
       <Navbar account={account} getNetwork={getNetwork} />
 
       {account == "" ? (
-        <div className="container">
-          {" "}
-          Connect your wallet to application{"   "}{" "}
-          <button onClick={walletAddress} style={{ color: "black" }}>
-            metamask
-          </button>
+        <div class="grid-container">
+          <div class="Navbar"></div>
+          <div class="Heading"></div>
+          <div class="Token-Info-section"></div>
+          <div class="Exchange-rate-section"></div>
+          <div class="Eth-address-section"></div>
+          <div class="Initial-supply-section">Initial supply</div>
+          <div class="Private-supply-section">Private supply</div>
+          <div class="Private-sale-progress-section"></div>
+          <div class="connect-wallet-section"></div>
         </div>
       ) : (
         content
