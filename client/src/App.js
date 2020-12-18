@@ -147,14 +147,14 @@ const App = () => {
     // console.log(refresh)
     // setrefresh(1)
     if (refresh == 1) {
-      setrefresh(1);
+      setrefresh(0);
       loadBlockchainData();
     }
-    // else {
-    //     window.onfocus = () => {
-    //       window.location.reload();
-    //   }
-    // }
+    else {
+        window.onfocus = () => {
+          window.location.reload();
+      }
+    }
 
     //esl
   }, [refresh]);
