@@ -284,11 +284,11 @@ const App = () => {
               style={{ marginLeft: "2%", marginTop: "2%" }}
             >
               <div style={{ display: "flex" }}>
-                <div className="email-confirmation-text">
+                {/* <div className="email-confirmation-text">
                   {" "}
                   Enter your Email Address for Confirmation{" "}
-                </div>
-                <Form.Item
+                </div> */}
+                {/* <Form.Item
                   name="email"
                   style={{ display: "flex" }}
                   rules={[
@@ -303,7 +303,7 @@ const App = () => {
                   ]}
                 >
                   <Input className="input-email" />
-                </Form.Item>
+                </Form.Item> */}
               </div>
 
               <Form.Item
