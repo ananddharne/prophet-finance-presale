@@ -47,7 +47,7 @@ html, body, .grid-container {
 .Thanks-section {
     grid-area: Thanks-section;
     /* max-height: 300px; */
-    max-height: 15%;
+    max-height: 12%;
 
     /* height: 80%; */
     box-shadow: 0 8px 6px -6px black;
@@ -64,7 +64,7 @@ html, body, .grid-container {
 }
 
 .para2 {
-    font-size: 70%;
+    font-size: 75%;
 }
 
 .Thanks-section-none {
@@ -310,7 +310,8 @@ color: white;
 
 .prophet-logo-2 {
     margin-left: 2.5%;
-    height: 10px;
+    height: 13px;
+    width: 12px;
 }
 
 .Email-address-section { grid-area: Email-address-section;
@@ -403,7 +404,7 @@ color: white;
 }
 
 .eth-logo {
-    height: 0.7%;
+    height: 3%;
     margin-left: 2.5%;
 }
 
@@ -422,7 +423,8 @@ color: white;
         height: 1.5%;
     }
     .prophet-logo-2 {
-        height: 10%;
+        height: 20px;
+        width: 18px;
     }
 } 
 
@@ -438,7 +440,7 @@ color: white;
         height: 3.5%;
     }
     .prophet-logo-2 {
-        height: 1em;
+        height: 20px;
     }
 } 
 
@@ -454,7 +456,7 @@ color: white;
         height: 5%;
     }
     .prophet-logo-2 {
-        height: 20%;
+        height: 27px;
     }
 }
 
@@ -470,7 +472,7 @@ color: white;
         height: 8%;
     }
     .prophet-logo-2 {
-        height: 25%;
+        height: 33px;
     }
 }
 
@@ -487,6 +489,6 @@ color: white;
         height: 10%;
     }
     .prophet-logo-2 {
-        height: 30%;
+        height: 38px;
     }
 } 

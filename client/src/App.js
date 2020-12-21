@@ -336,9 +336,9 @@ const App = () => {
 
                 <div className="thanks-text">Eth contributed:</div>
                 <img src={ethLogo} className="eth-logo" />
-                <span style={{color: '#ff005c', fontWeight: 'bold'}}> {inputVal} </span>
+                <span style={{color: '#ff005c', fontWeight: 'bold', marginTop: '1%'}}> {inputVal} </span>
                 <div className="thanks-text"> PRY you will recieve (1 ETH x 78000):</div>
-                <img src={logo} className="prophet-logo-2" />
+                <img style={{ marginLeft: '3%' }} src={logo} className="prophet-logo-2" />
                 <span style={{color: '#ff005c', fontWeight: 'bold'}}> {inputVal * 78000} </span>
           </div>
         </div>
