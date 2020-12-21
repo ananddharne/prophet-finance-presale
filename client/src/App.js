@@ -169,7 +169,6 @@ const App = () => {
     content = (
       <div>
         <div class="grid-container">
-          {/* <div class="Navbar"></div> */}
           <div class="Heading">
             <div className="heading">Prophecy Private Sale Portal</div>
           </div>
@@ -284,26 +283,6 @@ const App = () => {
               style={{ marginLeft: "2%", marginTop: "2%" }}
             >
               <div style={{ display: "flex" }}>
-                {/* <div className="email-confirmation-text">
-                  {" "}
-                  Enter your Email Address for Confirmation{" "}
-                </div> */}
-                {/* <Form.Item
-                  name="email"
-                  style={{ display: "flex" }}
-                  rules={[
-                    {
-                      type: "email",
-                      message: "The input is not valid E-mail!"
-                    },
-                    {
-                      required: true,
-                      message: "Please input your E-mail!"
-                    }
-                  ]}
-                >
-                  <Input className="input-email" />
-                </Form.Item> */}
               </div>
 
               <Form.Item
@@ -376,14 +355,78 @@ const App = () => {
 
       {account == "" ? (
         <div class="grid-container">
-          <div class="Navbar"></div>
-          <div class="Heading"></div>
-          <div class="Token-Info-section"></div>
-          <div class="Exchange-rate-section"></div>
-          <div class="Eth-address-section"></div>
-          <div class="Initial-supply-section">Initial supply</div>
-          <div class="Private-supply-section">Private supply</div>
-          <div class="Private-sale-progress-section"></div>
+                <div class="Heading">
+            <div className="heading">Prophecy Private Sale Portal</div>
+          </div>
+          <div className="Token-Info-section">
+            <div className="token-name">
+              {" "}
+              Token Name
+              <div className="token-name-describe">Prophecy</div>
+            </div>
+            <div className="token-symbol">
+              {" "}
+              Token Symbol
+              <div className="token-symbol-describe">$PRY</div>
+            </div>
+          </div>
+          <div className="Exchange-rate-section">
+            <div className="exchange-rate-header">
+              Private Sale Exchange Rate
+            </div>
+            <div className="exchange-rate-value">1 ETH = 78.000 PRY</div>
+          </div>
+          <div className="Eth-address-section">
+            <div className="eth-address-header">
+              {" "}
+              Private Sale ETH Wallet Address{" "}
+            </div>
+            <div className="eth-address-value">
+              {" "}
+              <p> 0x117F7281Db05Ad19e79E497bd7469F793FE36093 </p>{" "}
+            </div>
+            <div className="eth-scan-link">
+              {" "}
+              <a href="/"> Check on Etherscan </a>{" "}
+            </div>
+          </div>
+          <div class="Initial-supply-section">
+            <div className="token-name">
+              {" "}
+              Initial Supply
+              <div className="token-name-describe">1000,000</div>
+            </div>
+            <div className="token-symbol">
+              {" "}
+              Total Supply
+              <div className="token-symbol-describe">200,000,00</div>
+            </div>
+          </div>
+          <div class="Private-supply-section">
+            <div className="exchange-rate-header">Private Sale Supply </div>
+            <div className="exchange-rate-value">50,000,000 PRY</div>
+          </div>
+          <div class="Private-sale-progress-section">
+            <div className="private-sale-progress-header">
+              {" "}
+              Private Sale Progress{" "}
+            </div>
+            <div className="private-sale-progress-goal">Goal: 600 ETH</div>
+            <div className="private-sale-progress-note">
+              Our private sale will end on 18 December 2020, or when our
+              hard-cap goal of 600 ETH is met, whichever comes first
+            </div>
+            <Progress
+              className="progress-bar"
+              status="exception"
+              percent={30}
+              showInfo={false}
+            >
+              <p style={{ position: "absolute", color: "white", flex: 0 }}>
+                testes
+              </p>
+            </Progress>
+          </div>
           <div class="connect-wallet-section"></div>
         </div>
       ) : (
