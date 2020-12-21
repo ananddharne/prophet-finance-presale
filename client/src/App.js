@@ -9,6 +9,8 @@ import "./App.css";
 import { Progress, InputNumber, Form, Input, Checkbox, Button } from "antd";
 import NumericInput from "react-numeric-input";
 import logo from "./logo.svg";
+import ethLogo from "./eth-logo.png";
+
 
 const App = () => {
   const [refresh, setrefresh] = useState(0);
@@ -117,16 +119,7 @@ const App = () => {
   };
 
   const onclick = async a => {
-    // if you want to go from eth to wei
-    // use this ethers.utils.parseEther(inputamount.toString())
-    // ethers.utils.formatUnits(unLockedTokens, 18))
-    // try {
-    //   const tx = await smartcontract.setCompleted(a.toString());
-    //   const txsign = await tx.wait();
-    //   window.location.reload();
-    // } catch (e) {
-    //   swal("error in doing transaction you are not admin");
-    // }
+ 
   };
 
   const walletAddress = async () => {
@@ -150,11 +143,11 @@ const App = () => {
       setrefresh(0);
       loadBlockchainData();
     }
-    else {
-        window.onfocus = () => {
-          window.location.reload();
-      }
-    }
+    // else {
+    //     window.onfocus = () => {
+    //       window.location.reload();
+    //   }
+    // }
 
     //esl
   }, [refresh]);
@@ -320,29 +313,33 @@ const App = () => {
           <div className="Thanks-section Thanks-section-none">
             <p className="thanks-text"> Thanks for contributing to our private sale! </p>
 
-            <p>
+            <p className="thanks-text para2">
               Welcome aboard. When our token launches, you will receive 25% of
               your private sale tokens each week for a period of four weeks.{" "}
             </p>
 
-            <p>
+            <p className="thanks-text para2">
               The tokens will be airdropped to the wallet you used to complete
               this transaction. We will announce the public token address at the
               time of launch.
             </p>
 
-            <p>Please contact us in Telegram for questions. </p>
+            <p className="thanks-text para2">Please contact us on Telegram for questions. </p>
             <Button
                   size={"large"}
-                  className="confirm-buttom"
+                  className="confirm-buttom para2"
                   type="primary"
                   htmlType="submit"
                 >
-                  Confirm
+                  Telegram
                 </Button>
 
-                <p>Eth contributed</p>
-                <p> PRY you will recieve (1 ETH x 78000):</p>
+                <div className="thanks-text">Eth contributed:</div>
+                <img src={ethLogo} className="eth-logo" />
+                <span style={{color: '#ff005c', fontWeight: 'bold'}}> {inputVal} </span>
+                <div className="thanks-text"> PRY you will recieve (1 ETH x 78000):</div>
+                <img src={logo} className="prophet-logo-2" />
+                <span style={{color: '#ff005c', fontWeight: 'bold'}}> {inputVal * 78000} </span>
           </div>
         </div>
       </div>
