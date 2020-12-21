@@ -4,7 +4,8 @@ import detectEthereumProvider from "@metamask/detect-provider";
 import Helloabi from "./contracts/Hello.json";
 import Web3 from "web3";
 import Navbar from "./Navbar";
-import swal from "sweetalert";
+// import swal from "sweetalert";
+import swal from '@sweetalert/with-react'
 import "./App.css";
 import { Progress, InputNumber, Form, Input, Checkbox, Button } from "antd";
 import NumericInput from "react-numeric-input";
@@ -49,18 +50,26 @@ const App = () => {
 
   const [form] = Form.useForm();
   const onFinish = values => {
-    const sec1 = document.getElementsByClassName("Eth-info-section");
-    sec1[0].style.display = "none";
-
-    const sec2 = document.getElementsByClassName("PRY-recieve-section");
-    sec2[0].style.display = "none";
-
-    const sec3 = document.getElementsByClassName("Email-address-section");
-    sec3[0].style.display = "none";
-
-    const sec4 = document.getElementsByClassName("Thanks-section");
-    sec4[0].classList.remove("Thanks-section-none");
-
+    console.log(typeof inputVal)
+    if(inputVal < 0.1 || inputVal > 600 ) {
+      swal(
+        'Uh Oh!',
+        'Ethereum value must  be between 0.1 and less than 600',
+        'error'
+      )
+    } else {
+      const sec1 = document.getElementsByClassName("Eth-info-section");
+      sec1[0].style.display = "none";
+  
+      const sec2 = document.getElementsByClassName("PRY-recieve-section");
+      sec2[0].style.display = "none";
+  
+      const sec3 = document.getElementsByClassName("Email-address-section");
+      sec3[0].style.display = "none";
+  
+      const sec4 = document.getElementsByClassName("Thanks-section");
+      sec4[0].classList.remove("Thanks-section-none");
+    }
     // sec5[0].classList
   };
 
@@ -237,12 +246,15 @@ const App = () => {
           <div class="Eth-info-section">
             <div className="eth-contribute-header">
               {" "}
-              ETH you want to contribute{" "}
+               ETH you want to contribute{" "}
             </div>
             <NumericInput
               onChange={onChange}
               value={inputVal}
               precision={2}
+              min={0.1}
+              max={600}
+              required
               size={6}
               step={0.1}
               mobile={false}
