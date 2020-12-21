@@ -42,9 +42,7 @@ html, body, .grid-container {
 
 } */
 
-.connect-wallet-section {
-    grid-area: connect-wallet-section;
-}
+
 
 .Thanks-section {
     grid-area: Thanks-section;
@@ -361,6 +359,21 @@ color: white;
 #register > div:nth-child(3) > div > div > div > button:hover {
     background: linear-gradient(to right, #ed645c, #d10a47);
  }
+
+.connect-wallet-section { 
+    grid-area: connect-wallet-section;
+    box-shadow: 0 8px 6px -6px black;
+    background-color: #162b51 !important;
+    border-radius: 1em;
+    width: 85%;
+    margin-left: 5%;
+}
+.connect-wallet-header {
+    color: #ff005c;
+    margin-bottom: 1%;
+    margin-left: 25%;
+    margin-top: 2%
+}
 
 
 }

@@ -427,7 +427,9 @@ const App = () => {
               </p>
             </Progress>
           </div>
-          <div class="connect-wallet-section"></div>
+          <div className="connect-wallet-section">
+            <div className="connect-wallet-header">Connect your wallet to participate in the private sale</div>
+          </div>
         </div>
       ) : (
         content
